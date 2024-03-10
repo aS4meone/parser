@@ -2,3 +2,4 @@ fastapi
 requests
 bs4
 uvicorn
+python-dotenv
