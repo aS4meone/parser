@@ -5,12 +5,15 @@ from app.routers.products_router import Products_router
 from app.routers.order_router import Order_router
 
 app = FastAPI()
+origins = [
+    "*"
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["GET"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 

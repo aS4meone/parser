@@ -1,0 +1,92 @@
+<!--GET TESTING-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Fetch Products</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Products</h1>-->
+<!--<div id="products"></div>-->
+
+<!--<script>-->
+<!--    async function fetchProducts() {-->
+<!--        try {-->
+<!--            const response = await fetch('http://127.0.0.1:8000/products/items?url=https://www.poizon.com/search?keyword=Nike');-->
+<!--            const data = await response.json();-->
+
+<!--            document.getElementById('products').innerHTML = '';-->
+
+<!--            data.forEach(product => {-->
+<!--                const productElement = document.createElement('div');-->
+<!--                productElement.innerHTML = `-->
+<!--                        <h2>${product.Name}</h2>-->
+<!--                        <p>Price: $${product.USDPrice}</p>-->
+<!--                        <img src="${product.Image}" alt="${product.Name}" style="max-width: 300px;">-->
+<!--                    `;-->
+<!--                document.getElementById('products').appendChild(productElement);-->
+<!--            });-->
+<!--        } catch (error) {-->
+<!--            console.error('Ошибка при получении данных:', error);-->
+<!--        }-->
+<!--    }-->
+
+<!--    fetchProducts();-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--POST TESTING-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Submit Order</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Submit Order</h1>-->
+<!--    <form id="orderForm">-->
+<!--        <label for="name">Name:</label><br>-->
+<!--        <input type="text" id="name" name="name" required><br>-->
+<!--        <label for="phone">Phone:</label><br>-->
+<!--        <input type="text" id="phone" name="phone" required><br>-->
+<!--        <label for="product">Product:</label><br>-->
+<!--        <input type="text" id="product" name="product" required><br><br>-->
+<!--        <button type="submit">Submit Order</button>-->
+<!--    </form>-->
+
+<!--    <div id="message"></div>-->
+
+<!--    <script>-->
+<!--        document.getElementById('orderForm').addEventListener('submit', async function(event) {-->
+<!--            event.preventDefault();-->
+
+<!--            const formData = new FormData(this);-->
+<!--            const name = formData.get('name');-->
+<!--            const phone = formData.get('phone');-->
+<!--            const product = formData.get('product');-->
+
+<!--            try {-->
+<!--                const response = await fetch('http://127.0.0.1:8000/submit/', {-->
+<!--                    method: 'POST',-->
+<!--                    headers: {-->
+<!--                        'Content-Type': 'application/json'-->
+<!--                    },-->
+<!--                    body: JSON.stringify({name, phone, product})-->
+<!--                });-->
+<!--                const data = await response.json();-->
+<!--                document.getElementById('message').innerText = data.message;-->
+<!--            } catch (error) {-->
+<!--                console.error('Error submitting order:', error);-->
+<!--                document.getElementById('message').innerText = 'Error submitting order. Please try again later.';-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
