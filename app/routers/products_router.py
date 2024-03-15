@@ -1,19 +1,15 @@
 from fastapi import APIRouter, HTTPException
 from typing import Optional
 
+from app.utils.new_parser import scrape_poizon_data
 from app.utils.web_parser import get_json_data, parse_product_list, parse_facets
 
 Products_router = APIRouter(tags=['Products Routers'], prefix='/products')
 
 
 @Products_router.get("/items")
-async def get_items(url: Optional[str] = 'https://www.poizon.com/search?keyword=Nike'):
-    json_data = get_json_data(url)
-    if json_data:
-        products_data = parse_product_list(url)
-        return products_data
-    else:
-        raise HTTPException(status_code=404, detail="Ошибка: Невозможно получить данные с указанного URL")
+async def get_items(url: str = 'https://www.poizon.com/search?keyword=Nike'):
+    return scrape_poizon_data(url)
 
 
 @Products_router.get("/brands/")

@@ -5,3 +5,4 @@ class OrderSchema(BaseModel):
     name: str
     phone: str
     product: str
+    link: str

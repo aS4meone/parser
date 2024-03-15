@@ -3,3 +3,7 @@ requests
 bs4
 uvicorn
 python-dotenv
+sqlalchemy
+psycopg2-binary
+alembic
+telebot

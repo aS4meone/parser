@@ -12,15 +12,25 @@
     cd parser
     ```
 
-3. Install the required packages using pip:
+3. Configure your .env file:
+
+4. Run docker-compose:
 
     ```bash
-    pip install -r requirements.txt
+    docker compose up -d
     ```
 
+5. Upgrade database
+    ```bash
+    docker exec -it parser-back-1 /bin/bash
+    ```
+   then do
+   ```bash
+    alembic upgrade heads
+    ```
+      ```bash
+    exit
+    ```
+   
 ## Usage
-
-Run the FastAPI application using uvicorn:
-
-```bash
-uvicorn main:app --reload
+After completing all the steps higher - go to 127.0.0.1:8000/docs and use the API
